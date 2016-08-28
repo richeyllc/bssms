@@ -29,7 +29,7 @@ group :development do
   gem 'better_errors'
   gem 'guard-bundler'
   gem 'guard-rails'
-  gem 'guard-rspec'
+  gem 'guard-rspec', require: false
   gem 'html2haml'
   gem 'rails_layout'
   gem 'rb-fchange', :require=>false
