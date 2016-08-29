@@ -10,7 +10,7 @@ puts 'CREATED ADMIN USER: ' << user.email
 user_list = [
   { name: "guest", email: "guest@example.com", password: "guest123"},
   { name: "user", email: "user@example.com", password: "user123"},
-  { name: "manager", email: "manager@example.com", password: "example123"},
+  { name: "manager", email: "manager@example.com", password: "manager123"},
   { name: "subadmin", email: "subadmin@example.com", password: "subadmin123"},
 ]
 user_list.each do |u|

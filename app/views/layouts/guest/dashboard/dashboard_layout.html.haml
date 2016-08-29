@@ -9,10 +9,10 @@
     = csrf_meta_tags
   %body
     %header
-      = render 'layouts/users/dashboard/navigation'
+      = render 'layouts/guest/dashboard/navigation'
     %main{:role => "main"}
       = render 'layouts/messages'
-      = render 'layouts/users/sidebar'
+      = render 'layouts/guest/sidebar'
       #wrapper
         #page-content-wrapper
           .container-fluid

@@ -1,4 +1,5 @@
-class Subadmin::DashboardController < ApplicationController
+class Subadmin::DashboardController < SubadminController
+  layout 'layouts/subadmin/dashboard/dashboard_layout'
   def index
   end
 end
