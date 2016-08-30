@@ -1,0 +1,2 @@
+class MappingType < ApplicationRecord
+end

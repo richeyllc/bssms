@@ -1,12 +1,13 @@
-User Starter
+BusinesSMS
 ================
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+* git clone this repo.
+* Set some environment variables.
+* bundle install
+* bundle exec rake db:create
+* bundle exec rake db:migrate
+* bundle exec rake db:seed
 
-Rails Composer is supported by developers who purchase our RailsApps tutorials.
-
-Problems? Issues?
 -----------
 
 Need help? Ask on Stack Overflow with the tag 'railsapps.'

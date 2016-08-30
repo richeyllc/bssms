@@ -18,10 +18,24 @@ user_list.each do |u|
   if nu.nil?
     new_user = User.create(email: u[:email], name: u[:name], password: u[:password])
     puts "Created user #{u[:email]}."
-    new_user.confirm
+    new_user.skip_confirmation!
   else
     puts "User #{u[:email]} was not created because it already existed."
     nu.confirm
     puts ".......... User #{u[:email]} was confirmed."
   end
+end
+# Create the MappingTypes
+mappingtypes = [
+  { name: "reply_text", description: "Will receive a text and return a text based on the content of the received text." },
+  { name: "send_hours", description: "Will send hours and current open/closed status of the group." },
+  { name: "send_location", description: "Will send the location of the group." },
+  { name: "send_vcard", description: "Will send the contact information of the group." },
+  { name: "call_back", description: "Will schedule a callback to call the sender." },
+  { name: "external_function", description: "Will launch an external program or function." }
+]
+MappingType.delete_all
+mappingtypes.each do |mt|
+  MappingType.create(name: mt[:name], description: mt[:description])
+  puts "Created MappingType: #{mt[:name]}"
 end

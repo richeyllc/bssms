@@ -10,7 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827230521) do
+ActiveRecord::Schema.define(version: 20160829231957) do
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.string   "uuid"
+    t.string   "stripe_token"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "mapping_types", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "mappings", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "mapping_type_id"
+    t.text     "description"
+    t.integer  "group_id"
+    t.text     "received_text"
+    t.text     "reply_text"
+    t.text     "external_function"
+    t.text     "hours_url"
+    t.text     "location"
+    t.text     "call_back_info"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["group_id"], name: "index_mappings_on_group_id"
+    t.index ["mapping_type_id"], name: "index_mappings_on_mapping_type_id"
+  end
+
+  create_table "phone_numbers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "number"
+    t.integer  "group_id"
+    t.text     "description"
+    t.text     "our_metadata"
+    t.text     "their_metadata"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["group_id"], name: "index_phone_numbers_on_group_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
