@@ -1,0 +1,8 @@
+.container
+  .row
+    %h3 Entities
+    .column
+      %table.table
+        %tbody
+          - @entities.each do |entitiy|
+            %tr= render entity

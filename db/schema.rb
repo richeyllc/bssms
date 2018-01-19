@@ -10,7 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829231957) do
+ActiveRecord::Schema.define(version: 20160921024401) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contact_infos", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.integer  "address_id"
+    t.string   "email"
+    t.integer  "entity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_contact_infos_on_address_id"
+    t.index ["entity_id"], name: "index_contact_infos_on_entity_id"
+  end
+
+  create_table "entities", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "contact_info_id"
+    t.integer  "address_id"
+    t.string   "uuid"
+    t.string   "stripe_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["address_id"], name: "index_entities_on_address_id"
+    t.index ["contact_info_id"], name: "index_entities_on_contact_info_id"
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # Admin namespace
   namespace :admin, path: 'admin' do
     resources :users
+    resources :entities
     # Admin root path
     match '/', to: 'dashboard#index', via: [:get], as: :root
   end
